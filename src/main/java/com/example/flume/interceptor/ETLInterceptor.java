@@ -1,5 +1,6 @@
 package com.example.flume.interceptor;
 
+import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.Interceptor;
 
@@ -51,4 +52,23 @@ public class ETLInterceptor implements Interceptor {
     public void close() {
 
     }
+
+    /**
+     * 静态内部类
+     */
+    public static class Builder implements Interceptor.Builder {
+
+        @Override
+        public Interceptor build() {
+            return new ETLInterceptor();
+        }
+
+        @Override
+        public void configure(Context context) {
+
+        }
+    }
+
 }
+
+
